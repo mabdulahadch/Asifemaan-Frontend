@@ -40,7 +40,7 @@ const AdminLayout = () => {
                     <img
                         src={logoUrl}
                         alt="Site Logo"
-                        className="h-30 w-auto object-contain"
+                        className="h-20 w-auto object-contain"
                     />
                 ) : (
                     <img

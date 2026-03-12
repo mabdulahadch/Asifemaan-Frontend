@@ -10,6 +10,7 @@ import { Loader2, Trash2, Upload, Link as LinkIcon, Save } from "lucide-react";
 
 
 interface SiteSettings {
+    logo: string | null;
     youtubeUrl: string | null;
     facebookUrl: string | null;
     instagramUrl: string | null;
@@ -19,6 +20,7 @@ interface SiteSettings {
 }
 
 const emptySettings: SiteSettings = {
+    logo: "",
     youtubeUrl: "",
     facebookUrl: "",
     instagramUrl: "",
@@ -53,6 +55,7 @@ const AdminSiteSettings = () => {
                 const data = res.data;
                 if (data) {
                     setSettings({
+                        logo: data.logo,
                         youtubeUrl: data.youtubeUrl || "",
                         facebookUrl: data.facebookUrl || "",
                         instagramUrl: data.instagramUrl || "",
