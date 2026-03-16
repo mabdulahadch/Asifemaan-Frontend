@@ -89,13 +89,14 @@ export const translations: Record<string, Record<Language, string>> = {
     ebookNotFound: { en: "E-Book not found", ur: "ای بُک نہیں ملی", hi: "ई-बुक नहीं मिली" },
 
     // ── Login Page ──
-    welcomeBack: { en: "Welcome back", ur: "خوش آمدید", hi: "वापसी पर स्वागत" },
-    enterCredentials: { en: "Enter your credentials to sign in", ur: "سائن ان کے لیے اپنی تفصیلات درج کریں", hi: "साइन इन के लिए अपने क्रेडेंशियल दर्ज करें" },
-    email: { en: "Email", ur: "ای میل", hi: "ईमेल" },
-    password: { en: "Password", ur: "پاس ورڈ", hi: "पासवर्ड" },
-    signIn: { en: "Sign In", ur: "سائن ان", hi: "साइन इन" },
-    dontHaveAccount: { en: "Don't have an account?", ur: "اکاؤنٹ نہیں ہے؟", hi: "खाता नहीं है?" },
-    signUp: { en: "Sign Up", ur: "سائن اپ", hi: "साइन अप" },
+    // welcomeBack: { en: "Welcome back", ur: "خوش آمدید", hi: "वापसी पर स्वागत" },
+    // enterCredentials: { en: "Enter your credentials to sign in", ur: "سائن ان کے لیے اپنی تفصیلات درج کریں", hi: "साइन इन के लिए अपने क्रेडेंशियल दर्ज करें" },
+    // email: { en: "Email", ur: "ای میل", hi: "ईमेल" },
+    // password: { en: "Password", ur: "پاس ورڈ", hi: "पासवर्ड" },
+    // signIn: { en: "Sign In", ur: "سائن ان", hi: "साइन इन" },
+    // dontHaveAccount: { en: "Don't have an account?", ur: "اکاؤنٹ نہیں ہے؟", hi: "खाता नहीं है?" },
+    // signUp: { en: "Sign Up", ur: "سائن اپ", hi: "साइन अप" },
+
 
     // ── Register Page ──
     createAccount: { en: "Create an account", ur: "اکاؤنٹ بنائیں", hi: "खाता बनाएं" },

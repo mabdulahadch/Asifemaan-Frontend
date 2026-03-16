@@ -14,7 +14,7 @@ interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType>({
-    language: "en",
+    language: "ur",
     setLanguage: () => { },
     isUrdu: false,
     isHindi: false,
@@ -26,7 +26,7 @@ const LanguageContext = createContext<LanguageContextType>({
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
     children,
 }) => {
-    const [language, setLanguage] = useState<Language>("en");
+    const [language, setLanguage] = useState<Language>("ur");
 
     const isUrdu = language === "ur";
     const isHindi = language === "hi";

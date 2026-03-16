@@ -103,7 +103,7 @@ const TopNavBar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white shadow-sm flex flex-col w-full">
+    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white shadow-sm flex flex-col w-full" dir="ltr">
       <div className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between px-4">
         {/* Logo */}
         <div className="flex-shrink-0 flex items-center">
@@ -157,7 +157,7 @@ const TopNavBar = () => {
         {/* Right side */}
         <div className="flex items-center gap-1.5">
           {/* Language Dropdown */}
-          <DropdownMenu>
+          {/* <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
                 variant="outline"
@@ -190,7 +190,7 @@ const TopNavBar = () => {
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
-          </DropdownMenu>
+          </DropdownMenu> */}
 
           {isLoggedIn ? (
             <div className="flex items-center gap-1">
@@ -285,7 +285,7 @@ const TopNavBar = () => {
       {showTabs && (
         <div className="md:hidden mx-auto w-full max-w-7xl px-4 border-t border-gray-100">
           <ScrollArea className="w-full whitespace-nowrap">
-            <div className="flex">
+            <div className="flex justify-center h-12">
               {tabs.map((tab) => (
                 <Link
                   key={tab.id}

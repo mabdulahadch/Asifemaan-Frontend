@@ -26,7 +26,7 @@ const Register = () => {
     const [countriesLoading, setCountriesLoading] = useState(true);
     const [error, setError] = useState("");
     const navigate = useNavigate();
-    const { t } = useLanguage();
+    // const { t } = useLanguage();
 
     useEffect(() => {
         const fetchCountries = async () => {
@@ -69,12 +69,12 @@ const Register = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-[calc(100vh-4rem)] bg-background p-4">
+        <div className="flex items-center justify-center min-h-[calc(100vh-4rem)] bg-background p-4" dir="ltr">
             <Card className="w-full max-w-md border-border/40 shadow-lg">
                 <CardHeader className="space-y-1">
-                    <CardTitle className="text-2xl font-bold text-center text-primary">{t("createAccount")}</CardTitle>
+                    <CardTitle className="text-2xl font-bold text-center text-primary">{"Create Account"}</CardTitle>
                     <CardDescription className="text-center">
-                        {t("enterDetails")}
+                        {"Enter your details to sign up"}
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -86,11 +86,11 @@ const Register = () => {
                         )}
 
                         <div className="space-y-2">
-                            <Label htmlFor="email">{t("email")}</Label>
+                            <Label htmlFor="email">{"Email"}</Label>
                             <Input
                                 id="email"
                                 type="email"
-                                placeholder="m@example.com"
+                                placeholder="asifemaan@example.com"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
@@ -98,10 +98,11 @@ const Register = () => {
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="password">{t("password")}</Label>
+                            <Label htmlFor="password">{"Password"}</Label>
                             <div className="relative">
                                 <Input
                                     id="password"
+                                    placeholder="********"
                                     type={showPassword ? "text" : "password"}
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
@@ -123,10 +124,10 @@ const Register = () => {
                         </div>
 
                         <div className="space-y-2">
-                            <Label htmlFor="country">{t("country")}</Label>
+                            <Label htmlFor="country">{"Country"}</Label>
                             <Select onValueChange={setCountry} required>
                                 <SelectTrigger>
-                                    <SelectValue placeholder={countriesLoading ? t("loadingCountries") : t("selectCountry")} />
+                                    <SelectValue placeholder={countriesLoading ? "Loading Countries" : "Select Country"} />
                                 </SelectTrigger>
                                 <SelectContent>
                                     {countries.map((c) => (
@@ -139,14 +140,14 @@ const Register = () => {
                         </div>
 
                         <Button type="submit" className="w-full" disabled={loading}>
-                            {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : t("signUp")}
+                            {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : "Sign Up"}
                         </Button>
                     </form>
                 </CardContent>
                 <CardFooter className="flex justify-center text-sm text-muted-foreground">
-                    {t("alreadyHaveAccount")}{" "}
+                    {"Already have an account?"}{" "}
                     <Link to="/login" className="ml-1 font-medium text-primary hover:underline">
-                        {t("signIn")}
+                        {"Sign In"}
                     </Link>
                 </CardFooter>
             </Card>

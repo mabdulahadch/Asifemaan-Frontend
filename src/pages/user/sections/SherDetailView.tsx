@@ -1,7 +1,7 @@
-import { ArrowLeft, Heart, Share2, Loader2 } from "lucide-react";
+import { ArrowLeft, Heart, Share2, Loader2, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { Content, ContentService } from "@/lib/api/content";
 import { Button } from "@/components/ui/button";
 import { useFavouriteContent } from "@/hooks/useFavourite";
@@ -9,11 +9,12 @@ import ShareDialog from "@/components/ShareDialog";
 
 const SherDetailView = () => {
     const { t, isUrdu, transliterate } = useLanguage();
-    const { contentId } = useParams();
+    const { contentId, id: poetId } = useParams();
     const navigate = useNavigate();
     const [sher, setSher] = useState<Content | null>(null);
     const [loading, setLoading] = useState(true);
     const { favIds, toggleFav } = useFavouriteContent();
+    const [allShers, setAllShers] = useState<Content[]>([]);
 
     useEffect(() => {
         const fetchSher = async () => {
@@ -29,6 +30,20 @@ const SherDetailView = () => {
         };
         fetchSher();
     }, [contentId]);
+
+    // Fetch all shers for this poet to enable prev/next navigation
+    useEffect(() => {
+        const fetchAll = async () => {
+            if (!poetId) return;
+            try {
+                const all = await ContentService.getContentByPoet(poetId);
+                setAllShers(all.filter((c) => c.type === "SHER"));
+            } catch (err) {
+                console.error("Failed to fetch all shers:", err);
+            }
+        };
+        fetchAll();
+    }, [poetId]);
 
     if (loading) {
         return (
@@ -50,6 +65,11 @@ const SherDetailView = () => {
     } catch (e) {
         console.error("Failed to parse media files", e);
     }
+
+    // Determine prev/next
+    const currentIndex = allShers.findIndex((s) => s.id === sher.id);
+    const prevSher = currentIndex > 0 ? allShers[currentIndex - 1] : null;
+    const nextSher = currentIndex < allShers.length - 1 ? allShers[currentIndex + 1] : null;
 
     return (
         <div>
@@ -85,7 +105,7 @@ const SherDetailView = () => {
 
             <div className="space-y-6 mb-8">
                 {couplets.map((couplet, i) => (
-                    <div key={i} className="rounded-lg border border-rekhta-border bg-rekhta-card/20 p-5">
+                    <div key={i} className="flex justify-center rounded-lg border border-rekhta-border bg-rekhta-card/20 p-5">
                         <pre
                             className={`whitespace-pre-wrap leading-loose text-rekhta-light/90 ${isUrdu ? "font-nastaliq text-xl text-right" : "font-serif text-lg text-center"
                                 }`}
@@ -115,6 +135,42 @@ const SherDetailView = () => {
                     }
                 />
             </div>
+
+            {/* Previous / Next Navigation */}
+            {allShers.length > 1 && (
+                <div className="mt-8 flex items-center justify-between border-t border-rekhta-border pt-6">
+                    {prevSher ? (
+                        <Link
+                            to={`/poet/${poetId}/sher/${prevSher.id}`}
+                            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                            className="flex items-center gap-2 text-rekhta-muted hover:text-rekhta-gold transition-colors"
+                        >
+                            <ChevronLeft className="h-5 w-5" />
+                            <div className="flex flex-col">
+                                <span className="text-xs font-semibold">پچھلی</span>
+                                <span className="hidden sm:inline text-sm">{transliterate(prevSher.title)}</span>
+                            </div>
+                        </Link>
+                    ) : (
+                        <div />
+                    )}
+                    {nextSher ? (
+                        <Link
+                            to={`/poet/${poetId}/sher/${nextSher.id}`}
+                            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                            className="flex items-center gap-2 text-rekhta-muted hover:text-rekhta-gold transition-colors text-right"
+                        >
+                            <div className="flex flex-col">
+                                <span className="text-xs font-semibold">اگلی</span>
+                                <span className="hidden sm:inline text-sm">{transliterate(nextSher.title)}</span>
+                            </div>
+                            <ChevronRight className="h-5 w-5" />
+                        </Link>
+                    ) : (
+                        <div />
+                    )}
+                </div>
+            )}
         </div>
     );
 };

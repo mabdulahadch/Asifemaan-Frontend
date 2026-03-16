@@ -111,7 +111,7 @@ const EBookDetailView = () => {
                 </h2>
             </div>
 
-            <div className="flex-1 min-h-[600px] w-full rounded-lg border border-rekhta-border bg-rekhta-card/30 overflow-hidden">
+            <div className="flex justify-center flex-1 min-h-[600px] w-full rounded-lg border border-rekhta-border bg-rekhta-card/30 overflow-hidden">
                 {ebook.pdfFile ? (
                     <iframe
                         src={`${getPdfUrl(ebook.pdfFile)}#toolbar=0`}

@@ -45,7 +45,7 @@ const AdminLayout = () => {
                 ) : (
                     <img
                         src=""
-                        alt="Site Logo Default"
+                        alt="Site Logo"
                         className="h-30 w-auto object-contain"
                     />
                 )}
@@ -84,7 +84,7 @@ const AdminLayout = () => {
     );
 
     return (
-        <div className="flex min-h-screen bg-background text-foreground">
+        <div className="flex min-h-screen bg-background text-foreground" dir="ltr">
             {/* Desktop Sidebar */}
             <aside className="hidden md:flex w-64 border-r border-border bg-card flex-col shrink-0">
                 <SidebarContent />

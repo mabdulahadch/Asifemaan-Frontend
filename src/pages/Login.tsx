@@ -19,7 +19,7 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const { login: authLogin } = useAuth();
-    const { t } = useLanguage();
+    // const { t } = useLanguage();
 
     // Where to redirect after successful login
     const from = (location.state as any)?.from || "/";
@@ -59,12 +59,12 @@ const Login = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-[calc(100vh-4rem)] bg-background p-4">
+        <div className="flex items-center justify-center min-h-[calc(100vh-4rem)] bg-background p-4" dir="ltr">
             <Card className="w-full max-w-md border-border/40 shadow-lg">
                 <CardHeader className="space-y-1">
-                    <CardTitle className="text-2xl font-bold text-center text-primary">{t("welcomeBack")}</CardTitle>
+                    <CardTitle className="text-2xl font-bold text-center text-primary">{"Welcome Back"}</CardTitle>
                     <CardDescription className="text-center">
-                        {t("enterCredentials")}
+                        {"Enter your credentials to sign in"}
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -76,11 +76,11 @@ const Login = () => {
                         )}
 
                         <div className="space-y-2">
-                            <Label htmlFor="email">{t("email")}</Label>
+                            <Label htmlFor="email">{"Email"}</Label>
                             <Input
                                 id="email"
                                 type="email"
-                                placeholder="m@example.com"
+                                placeholder="asifemaan@example.com"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
@@ -90,6 +90,7 @@ const Login = () => {
                             <div className="relative">
                                 <Input
                                     id="password"
+                                    placeholder="*********"
                                     type={showPassword ? "text" : "password"}
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
@@ -109,14 +110,14 @@ const Login = () => {
                             </div>
                         </div>
                         <Button type="submit" className="w-full" disabled={loading}>
-                            {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : t("signIn")}
+                            {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : "Sign In"}
                         </Button>
                     </form>
                 </CardContent>
                 <CardFooter className="flex justify-center text-sm text-muted-foreground">
-                    {t("dontHaveAccount")}{" "}
+                    {"Don't have an account?"}{" "}
                     <Link to="/register" className="ml-1 font-medium text-primary hover:underline">
-                        {t("signUp")}
+                        {"Sign Up"}
                     </Link>
                 </CardFooter>
             </Card>
