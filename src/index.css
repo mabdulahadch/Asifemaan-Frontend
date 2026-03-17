@@ -21,6 +21,11 @@
   }
 
   .font-nastaliq {
-    font-family: 'Noto Nastaliq Urdu';
+    font-family: 'Noto Nastaliq Urdu', serif;
+  }
+
+  /* Apply Nastaliq font globally when in RTL/Urdu mode */
+  [dir="rtl"] {
+    font-family: 'Noto Nastaliq Urdu', serif;
   }
 }
