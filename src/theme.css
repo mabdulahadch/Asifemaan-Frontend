@@ -60,11 +60,20 @@
 
 
 /* ===============================
-   Google Font Imports
+   Google Font Imports & Custom Fonts
 ================================= */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@100..900&display=swap');
+
+@font-face {
+    font-family: 'Jameel Noori Nastaleeq';
+    src: url('/font/Jameel Noori Nastaleeq Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    size-adjust: 130%;
+}
 
 
 /* ===============================

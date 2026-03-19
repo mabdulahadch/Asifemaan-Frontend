@@ -15,9 +15,9 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Outfit"],
-        urdu: ["'BBC Reith Qalam'", "'Noto Nastaliq Urdu'"],
+        urdu: ["'Jameel Noori Nastaleeq'", "'Noto Nastaliq Urdu'"],
         hindi: ["'Noto Sans Devanagari'"],
-        nastaliq: ["'Noto Nastaliq Urdu'"], // Keeping backward compatibility if needed, or remove if unused 
+        nastaliq: ["'Jameel Noori Nastaleeq'", "'Noto Nastaliq Urdu'"], // Keeping backward compatibility if needed, or remove if unused 
       },
       colors: {
         border: "hsl(var(--border))",
