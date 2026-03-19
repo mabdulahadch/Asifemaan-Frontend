@@ -96,7 +96,7 @@ const EBookSection = ({ poetId: propPoetId, limit }: Props) => {
 
 
               <div className="p-3">
-                <h3 className={`line-clamp-2 text-sm font-medium text-rekhta-light/90 group-hover:text-rekhta-gold ${isUrdu ? "font-nastaliq text-base leading-loose" : ""}`}>
+                <h3 className={`text-sm font-medium text-rekhta-light/90 group-hover:text-rekhta-gold ${isUrdu ? "font-nastaliq text-base leading-[2.4] pb-1 pt-2" : ""}`}>
                   {transliterate(item.title)}
                 </h3>
 

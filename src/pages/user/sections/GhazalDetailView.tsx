@@ -77,9 +77,9 @@ const GhazalDetailView = () => {
 
       <div className="space-y-6">
         {couplets.map((couplet, i) => (
-          <div key={i} className="flex justify-center rounded-lg border border-rekhta-border bg-rekhta-card/20 p-5">
+          <div key={i} className="rounded-lg border border-rekhta-border bg-rekhta-card/20 p-5">
             <pre
-              className={`whitespace-pre-wrap leading-loose text-rekhta-light/90 ${isUrdu ? "font-nastaliq text-xl text-right" : "font-serif text-lg text-center"
+              className={`leading-loose text-rekhta-light/90 ${isUrdu ? "font-nastaliq text-xl [text-align-last:center]" : "font-serif text-lg text-justify"
                 }`}
             >
               {transliterate(couplet)}

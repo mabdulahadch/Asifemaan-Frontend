@@ -86,9 +86,9 @@ const SherDetailView = () => {
 
             {parsedMediaFiles.length > 0 && (
                 <div className="mb-8 overflow-hidden space-y-4">
-                    <h3 className="text-lg font-medium text-rekhta-gold">
+                    {/* <h3 className="text-lg font-medium text-rekhta-gold">
                         {t("images")}
-                    </h3>
+                    </h3> */}
                     <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 pt-2 scrollbar-hide items-center">
                         {parsedMediaFiles.map((src, i) => (
                             <img
@@ -105,9 +105,9 @@ const SherDetailView = () => {
 
             <div className="space-y-6 mb-8">
                 {couplets.map((couplet, i) => (
-                    <div key={i} className="flex justify-center rounded-lg border border-rekhta-border bg-rekhta-card/20 p-5">
+                    <div key={i} className="rounded-lg border border-rekhta-border bg-rekhta-card/20 p-5">
                         <pre
-                            className={`whitespace-pre-wrap leading-loose text-rekhta-light/90 ${isUrdu ? "font-nastaliq text-xl text-right" : "font-serif text-lg text-center"
+                            className={`whitespace-pre-wrap leading-loose text-rekhta-light/90 ${isUrdu ? "font-nastaliq text-xl text-center" : "font-serif text-lg text-center"
                                 }`}
                         >
                             {transliterate(couplet)}

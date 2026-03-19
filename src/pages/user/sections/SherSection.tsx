@@ -88,7 +88,7 @@ const SherSection = ({ poetId: propPoetId, limit, onSelectSher }: Props) => {
                 }}
                 className="flex-1 text-start text-rekhta-light/90 transition-colors group-hover:text-rekhta-gold"
               >
-                <span className={isUrdu ? "font-nastaliq text-lg" : "text-base"}>
+                <span className={isUrdu ? "font-nastaliq text-lg leading-[2.4] inline-block py-1" : "text-base"}>
                   {transliterate(s.title)}
                 </span>
               </button>

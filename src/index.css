@@ -17,15 +17,48 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'outfit';
+    font-family: 'Outfit', sans-serif;
   }
 
   .font-nastaliq {
     font-family: 'Noto Nastaliq Urdu', serif;
+    line-height: 2.2;
+    padding-top: 0.5em;
+    padding-bottom: 0.2em;
   }
 
   /* Apply Nastaliq font globally when in RTL/Urdu mode */
   [dir="rtl"] {
     font-family: 'Noto Nastaliq Urdu', serif;
+    line-height: 2.2;
   }
+
+  /* Fix Nastaliq font clipping in constrained containers */
+  [dir="rtl"] h1,
+  [dir="rtl"] h2,
+  [dir="rtl"] h3,
+  [dir="rtl"] h4,
+  [dir="rtl"] p,
+  [dir="rtl"] span,
+  [dir="rtl"] a,
+  [dir="rtl"] button {
+    overflow: visible;
+    padding-top: 0.3em;
+  }
+
+  /* Override line-clamp to prevent Nastaliq clipping */
+  [dir="rtl"] .line-clamp-2 {
+    -webkit-line-clamp: unset;
+    display: block;
+    overflow: visible;
+  }
+}
+
+/* Nastaliq text helper for non-clipping display */
+.nastaliq-title {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  line-height: 2.4;
+  overflow: visible;
+  padding-top: 0.5em;
+  padding-bottom: 0.3em;
 }
