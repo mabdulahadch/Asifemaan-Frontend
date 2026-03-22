@@ -75,18 +75,58 @@ const GhazalDetailView = () => {
         </h2>
       </div>
 
-      <div className="space-y-6">
-        {couplets.map((couplet, i) => (
-          <div key={i} className="rounded-lg border border-rekhta-border bg-rekhta-card/20 p-5">
-            <pre
-              className={`leading-loose text-rekhta-light/90 ${isUrdu ? "font-nastaliq text-xl [text-align-last:center]" : "font-serif text-lg text-justify"
-                }`}
-            >
-              {transliterate(couplet)}
-            </pre>
-          </div>
-        ))}
-      </div>
+
+<div className="space-y-8 md:space-y-10">
+  {couplets.map((couplet, i) => (
+    <div key={i} className="rounded-lg border border-rekhta-border bg-rekhta-card/20 px-3 py-6 md:p-7">
+      {isUrdu ? (
+        <div
+          className="text-rekhta-light/90 font-nastaliq"
+          style={{ direction: "rtl" }}
+        >
+          {transliterate(couplet)
+            .split("\n")
+            .filter(Boolean)
+            .map((line, j, arr) => {
+              const words = line.trim().split(/\s+/);
+              const isLastInPair = j % 2 === 1;
+              return (
+                <div 
+                  key={j}
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: words.length > 1 ? "space-between" : "center",
+                    alignItems: "baseline",
+                    width: "100%",
+                    maxWidth: "560px",
+                    margin: isLastInPair && j < arr.length - 1
+                      ? "0 auto 1.5rem auto"
+                      : "0 auto 0.4rem auto",
+                    fontSize: "clamp(0.95rem, 3.8vw, 1.25rem)",
+                    lineHeight: "2.4",
+                  }}
+                >
+                  {words.map((word, k) => (
+                    <span key={k}>{word}</span>
+                  ))}
+                </div>
+              );
+            })}
+        </div>
+      ) : (
+        <pre
+          className="leading-loose text-rekhta-light/90 font-serif text-justify whitespace-pre-wrap"
+          style={{ fontSize: "clamp(0.9rem, 3.5vw, 1.125rem)" }}
+        >
+          {transliterate(couplet)}
+        </pre>
+      )}
+    </div>
+  ))}
+</div>
+
+
 
       <div className="mt-6 flex items-center gap-3">
         <Button
