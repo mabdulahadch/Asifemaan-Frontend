@@ -102,7 +102,7 @@ const GhazalDetailView = () => {
                     maxWidth: "560px",
                     margin: isLastInPair && j < arr.length - 1
                       ? "0 auto 1.5rem auto"
-                      : "0 auto 0.4rem auto",
+                      : "0 auto -1rem auto",
                     fontSize: "clamp(0.95rem, 3.8vw, 1.25rem)",
                     lineHeight: "2.4",
                   }}

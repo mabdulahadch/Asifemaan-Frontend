@@ -89,7 +89,7 @@ const EBookDetailView = () => {
                                     {t("viewFullScreen")}
                                 </a>
                             </Button>
-                            <Button
+                            {/* <Button
                                 variant="outline"
                                 size="sm"
                                 className="border-rekhta-gold/50 text-rekhta-gold hover:bg-rekhta-gold hover:text-rekhta-darker"
@@ -99,7 +99,7 @@ const EBookDetailView = () => {
                                     <Download className="mr-2 h-4 w-4" />
                                     {t("download")}
                                 </a>
-                            </Button>
+                            </Button> */}
                         </>
                     )}
                 </div>
