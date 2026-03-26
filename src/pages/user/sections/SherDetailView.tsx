@@ -105,7 +105,7 @@ const SherDetailView = () => {
 
             <div className="space-y-8 md:space-y-10">
                 {couplets.map((couplet, i) => (
-                    <div key={i} className="rounded-lg border border-rekhta-border bg-rekhta-card/20 px-3 py-6 md:p-7">
+                    <div key={i} className="px-3 py-6 md:p-7">
                         {isUrdu ? (
                             <div
                                 className="text-rekhta-light/90 font-nastaliq"

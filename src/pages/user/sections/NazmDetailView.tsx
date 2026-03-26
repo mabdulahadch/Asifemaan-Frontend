@@ -76,7 +76,7 @@ const NazmDetailView = () => {
       </div>
 
       <div
-        className="text-rekhta-light/90 font-nastaliq whitespace-pre-wrap rounded-lg border border-rekhta-border bg-rekhta-card/20 "
+        className="text-rekhta-light/90 font-nastaliq whitespace-pre-wrap"
         style={{
           direction: "rtl",
           textAlign: "right",
